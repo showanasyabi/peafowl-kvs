@@ -1,6 +1,6 @@
 # Memcached and Peafowl
 Peafowl is an extension of Memcached. It saves power while 
-delivering the same performance as Memcached. Please go see the following
+delivering the same performance as Memcached. Please  see the following paper
 for more detail:
 https://dl.acm.org/doi/abs/10.1145/3419111.3421298
 
