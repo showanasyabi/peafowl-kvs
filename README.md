@@ -1,53 +1,24 @@
-# Memcached
+# Memcached and Peafowl
+Peafowl is an extension of Memcached. It saves power while 
+delivering the same performance as Memcached. Please go see the following
+for more detail:
+https://dl.acm.org/doi/abs/10.1145/3419111.3421298
 
-Memcached is a high performance multithreaded event-based key/value cache
-store intended to be used in a distributed system.
 
-See: https://memcached.org/about
+#  Compile and Install
+ Please see the Memcached repository for compile and install instructions:
+ https://github.com/memcached/memcached
+  
 
-A fun story explaining usage: https://memcached.org/tutorial
+#  Run Peafowl
+You can run Peafowl using flags that you normally use for Memcached. However, you need 
+to run Peafowl with -Q flag  and -t flag  in the privileged mode.
 
-If you're having trouble, try the wiki: https://memcached.org/wiki
+Q flag  pins Peafowl workers to distinct CPU cores.
 
-If you're trying to troubleshoot odd behavior or timeouts, see:
-https://memcached.org/timeouts
+t flag determines the number of worker threads for Peafowl.
 
-https://memcached.org/ is a good resource in general. Please use the mailing
-list to ask questions, github issues aren't seen by everyone!
+The following command  is the command that we use to run Peafowl:
 
-## Dependencies
+./memcached -Q -t 10 -u root
 
-* libevent, https://www.monkey.org/~provos/libevent/ (libevent-dev)
-* libseccomp, (optional, experimental, linux) - enables process restrictions for
-  better security. Tested only on x86-64 architectures.
-* openssl, (optional) - enables TLS support. need relatively up to date
-  version.
-
-## Environment
-
-Be warned that the -k (mlockall) option to memcached might be
-dangerous when using a large cache.  Just make sure the memcached machines
-don't swap.  memcached does non-blocking network I/O, but not disk.  (it
-should never go to disk, or you've lost the whole point of it)
-
-## Build status
-
-See https://build.memcached.org/ for multi-platform regression testing status.
-
-## Bug reports
-
-Feel free to use the issue tracker on github.
-
-**If you are reporting a security bug** please contact a maintainer privately.
-We follow responsible disclosure: we handle reports privately, prepare a
-patch, allow notifications to vendor lists. Then we push a fix release and your
-bug can be posted publicly with credit in our release notes and commit
-history.
-
-## Website
-
-* https://www.memcached.org
-
-## Contributing
-
-See https://github.com/memcached/memcached/wiki/DevelopmentRepos
